@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="google-site-verification" content="HfY9BJadVd_2kSRfIVFTJhaFg81txdOOjZUhrBADM44" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9FPV1TTCW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V9FPV1TTCW');
+  </script>
+
+  <title>EA เสี่ยงตรงไหนบ้าง | วิเคราะห์ความเสี่ยงของระบบเทรดอัตโนมัติแบบเป็นโครงสร้าง</title>
+
+  <meta name="description" content="วิเคราะห์ความเสี่ยงของ EA แบบเป็นระบบ ตั้งแต่กลยุทธ์ ตลาด Drawdown Leverage และพฤติกรรมมนุษย์ เพื่อเข้าใจว่าความเสี่ยงจริงของ EA อยู่ตรงไหน">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GEO -->
+  <meta name="language" content="th">
+  <meta name="geo.region" content="TH">
+  <meta name="geo.placename" content="Thailand">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="EA เสี่ยงตรงไหนบ้าง | Risk First Trading">
+  <meta property="og:description" content="ความเสี่ยงของ EA ไม่ได้อยู่ที่โค้ด แต่อยู่ที่โครงสร้างและการใช้งาน">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://riskfirsttrading.github.io/ea-risk.html">
+
+  <link rel="stylesheet" href="assets/style.css">
+
+  <!-- Schema: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "EA เสี่ยงตรงไหนบ้าง",
+    "description": "วิเคราะห์ความเสี่ยงของระบบเทรดอัตโนมัติ (EA) ในเชิงโครงสร้าง ตั้งแต่กลยุทธ์ ตลาด Drawdown และมนุษย์",
+    "inLanguage": "th",
+    "author": {
+      "@type": "Organization",
+      "name": "Risk First Trading"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Risk First Trading"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://riskfirsttrading.github.io/ea-risk.html"
+    }
+  }
+  </script>
+
+</head>
+
+<body>
+<main>
+
+<h1>EA เสี่ยงตรงไหนบ้าง: ความเสี่ยงที่ไม่อยู่ในโค้ด แต่ซ่อนอยู่ในระบบ</h1>
+
+<p>
+คำถามว่า <strong>“EA เสี่ยงไหม”</strong>  
+มักถูกตอบแบบสั้น ๆ ว่า “เสี่ยง” หรือ “ไม่เสี่ยง”
+</p>
+
+<p>
+แต่คำตอบที่มีประโยชน์กว่าคือ  
+<strong>EA เสี่ยง — เพราะอะไร และเสี่ยงตรงไหน</strong>
+</p>
+
+<p>
+เพราะความเสี่ยงของ EA  
+ไม่ได้เกิดจากจุดเดียว  
+แต่มาจาก “โครงสร้างหลายชั้น”  
+ที่ทำงานซ้อนกัน
+</p>
+
+<hr>
+
+<h2>ภาพรวม: ความเสี่ยงของ EA ไม่ได้มีชั้นเดียว</h2>
+
+<p>
+หากมอง EA แบบผิวเผิน  
+คนมักโฟกัสแค่:
+</p>
+
+<ul>
+  <li>กราฟกำไร</li>
+  <li>Win Rate</li>
+  <li>Backtest</li>
+</ul>
+
+<p>
+แต่ในมุมมองเชิงระบบ  
+EA มีความเสี่ยงอย่างน้อย 5 ชั้นหลัก
+</p>
+
+<ul>
+  <li>ความเสี่ยงจากกลยุทธ์ (Strategy Risk)</li>
+  <li>ความเสี่ยงจากบริบทตลาด (Market Regime Risk)</li>
+  <li>ความเสี่ยงจาก Drawdown</li>
+  <li>ความเสี่ยงจาก Leverage และขนาดสัญญา</li>
+  <li>ความเสี่ยงจากมนุษย์ (Human Risk)</li>
+</ul>
+
+<p>
+ชั้นเหล่านี้ไม่แยกจากกัน  
+แต่ส่งผลต่อกันตลอดเวลา
+</p>
+
+<hr>
+
+<h2>1. ความเสี่ยงจากกลยุทธ์ (Strategy Risk)</h2>
+
+<p>
+ไม่มีกลยุทธ์ใดทำกำไรได้ทุกสภาวะตลาด
+</p>
+
+<p>
+EA ทุกตัว  
+ถูกสร้างบนสมมติฐานบางอย่าง เช่น:
+</p>
+
+<ul>
+  <li>ตลาดมีแนวโน้ม</li>
+  <li>ราคามีการแกว่งกลับ</li>
+  <li>ความผันผวนอยู่ในกรอบหนึ่ง</li>
+</ul>
+
+<p>
+เมื่อสมมติฐานนั้นไม่เป็นจริง  
+ระบบจะเริ่มสะสมความเสียหาย
+</p>
+
+<p>
+ปัญหาคือ  
+EA ไม่สามารถรู้ได้ว่า  
+<strong>กลยุทธ์ของมัน “หมดอายุ” แล้ว</strong>
+</p>
+
+<hr>
+
+<h2>2. ความเสี่ยงจากบริบทตลาด (Market Regime Risk)</h2>
+
+<p>
+ตลาดไม่ได้มีพฤติกรรมแบบเดียวตลอดเวลา
+</p>
+
+<p>
+ช่วงที่ระบบทำงานได้ดี  
+อาจเป็นเพียงช่วงที่ตลาด “เอื้อ”
+</p>
+
+<p>
+เมื่อบริบทเปลี่ยน เช่น:
+</p>
+
+<ul>
+  <li>ความผันผวนพุ่งสูงผิดปกติ</li>
+  <li>เกิดข่าวแรงต่อเนื่อง</li>
+  <li>สภาพคล่องเปลี่ยน</li>
+</ul>
+
+<p>
+EA จะยังทำงานเหมือนเดิม  
+แม้สภาพแวดล้อมจะไม่เหมือนเดิม
+</p>
+
+<p>
+นี่คือความเสี่ยงที่ Backtest มักไม่สะท้อน
+</p>
+
+<hr>
+
+<h2>3. ความเสี่ยงจาก Drawdown</h2>
+
+<p>
+Drawdown ไม่ใช่ความผิดพลาด  
+แต่เป็นส่วนหนึ่งของระบบ
+</p>
+
+<p>
+ปัญหาไม่ได้อยู่ที่  
+<strong>ระบบมี Drawdown</strong>  
+แต่อยู่ที่  
+<strong>ผู้ใช้รับ Drawdown ไม่ได้</strong>
+</p>
+
+<p>
+หลายระบบ:
+</p>
+
+<ul>
+  <li>กำไรระยะยาวดี</li>
+  <li>แต่มี Drawdown ลึก</li>
+</ul>
+
+<p>
+เมื่อผู้ใช้ไม่เข้าใจจุดนี้  
+มักจะ:
+</p>
+
+<ul>
+  <li>ปิดระบบกลาง Drawdown</li>
+  <li>เปลี่ยน EA ในจังหวะที่แย่ที่สุด</li>
+</ul>
+
+<p>
+ความเสียหายจึงไม่ได้มาจากตลาด  
+แต่มาจากการตัดสินใจผิดจังหวะ
+</p>
+
+<hr>
+
+<h2>4. ความเสี่ยงจาก Leverage และขนาดสัญญา</h2>
+
+<p>
+EA จำนวนมาก “ดูดี”  
+เพราะใช้ Leverage สูง
+</p>
+
+<p>
+Leverage ไม่ได้เพิ่มแค่กำไร  
+แต่มันขยาย:
+</p>
+
+<ul>
+  <li>Drawdown</li>
+  <li>ความผันผวนของพอร์ต</li>
+  <li>แรงกดดันทางจิตใจ</li>
+</ul>
+
+<p>
+EA ตัวเดียวกัน  
+อาจดูปลอดภัยมากในบัญชีหนึ่ง  
+และอันตรายมากในอีกบัญชีหนึ่ง  
+เพียงเพราะขนาด Lot ต่างกัน
+</p>
+
+<hr>
+
+<h2>5. ความเสี่ยงจากมนุษย์ (Human Risk)</h2>
+
+<p>
+นี่คือความเสี่ยงที่ใหญ่ที่สุด
+</p>
+
+<p>
+แม้ใช้ระบบอัตโนมัติ  
+มนุษย์ยังคง:
+</p>
+
+<ul>
+  <li>เลือกขนาดเงิน</li>
+  <li>เลือก Leverage</li>
+  <li>เลือกว่าจะหยุดหรือไปต่อ</li>
+</ul>
+
+<p>
+ความผิดพลาดที่พบบ่อย:
+</p>
+
+<ul>
+  <li>เพิ่ม Lot หลังขาดทุน</li>
+  <li>ปิดระบบเพราะกลัว</li>
+  <li>เปิดระบบเพิ่มเพราะโลภ</li>
+</ul>
+
+<p>
+EA ไม่ได้ลบความเสี่ยงจากมนุษย์  
+แต่มักจะ “ขยายผล” ของมัน
+</p>
+
+<hr>
+
+<h2>คำถามที่พบบ่อยเกี่ยวกับความเสี่ยงของ EA (FAQ)</h2>
+
+<h3>EA เสี่ยงกว่าการเทรดมือหรือไม่</h3>
+<p>
+ไม่จำเป็น  
+EA และการเทรดมือมีความเสี่ยงคนละรูปแบบ  
+แต่ EA มักขยายผลของการตั้งค่าที่ผิดพลาด
+</p>
+
+<h3>Backtest ดี แปลว่า EA ปลอดภัยหรือไม่</h3>
+<p>
+ไม่  
+Backtest เป็นเพียงการทดสอบกับอดีต  
+ไม่สามารถรับประกันพฤติกรรมในอนาคต
+</p>
+
+<h3>Drawdown แค่ไหนถึงเรียกว่าอันตราย</h3>
+<p>
+ไม่มีตัวเลขตายตัว  
+อันตรายหรือไม่ขึ้นอยู่กับว่า  
+ผู้ใช้รับได้จริงหรือไม่
+</p>
+
+<h3>ความเสี่ยงของ EA ลดได้หรือไม่</h3>
+<p>
+ลดได้บางส่วน  
+ผ่านการตั้งค่า การจำกัดความเสี่ยง  
+และการเข้าใจระบบอย่างถูกต้อง  
+แต่ไม่สามารถลบออกได้ทั้งหมด
+</p>
+
+<hr>
+
+<div class="cta">
+  <a href="ea-failure.html">อ่านต่อ: ทำไมคนใช้ EA แล้วล้มเหลว</a>
+</div>
+
+</main>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "EA เสี่ยงกว่าการเทรดมือหรือไม่",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ไม่จำเป็น EA และการเทรดมือมีความเสี่ยงคนละรูปแบบ แต่ EA มักขยายผลของการตั้งค่าที่ผิดพลาด"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Backtest ดี แปลว่า EA ปลอดภัยหรือไม่",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ไม่ Backtest เป็นเพียงการทดสอบกับข้อมูลในอดีต ไม่สามารถรับประกันพฤติกรรมในอนาคตได้"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Drawdown แค่ไหนถึงเรียกว่าอันตราย",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ไม่มีตัวเลขตายตัว ความอันตรายขึ้นอยู่กับว่าผู้ใช้สามารถรับ Drawdown นั้นได้จริงหรือไม่"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "สามารถลดความเสี่ยงของ EA ได้หรือไม่",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ลดได้บางส่วนผ่านการตั้งค่า การจำกัดความเสี่ยง และความเข้าใจระบบ แต่ไม่สามารถลบความเสี่ยงได้ทั้งหมด"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
